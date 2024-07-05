@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer :width="226" v-model="drawer" app>
+      <v-list-item title="My Application" subtitle="Vuetify">Application</v-list-item>
+      <v-divider></v-divider>
+      <v-list-item link title="List Item 1"></v-list-item>
+      <v-list-item link title="List Item 2"></v-list-item>
+      <v-list-item link title="List Item 3"></v-list-item>
+    </v-navigation-drawer>
+    
+    <v-app-bar app>
+      <v-btn @click="alerta()">hi</v-btn>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-app-bar>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-nav {
-  padding: 30px;
+<script>
+export default {
+  data: () => ({
+     drawer: null }),
+  methods:{
+    alerta(){
+      alert('hihi');
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
     }
   }
 }
-</style>
+
+</script>
